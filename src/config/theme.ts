@@ -1,7 +1,7 @@
 import type { IConfigOption, Theme } from '@/types'
 
 import { toMerged } from 'es-toolkit'
-
+// MARK：这里可以定义主题
 const defaultTheme: Theme = {
   base: {
     '--md-primary-color': `#000000`,
@@ -228,7 +228,7 @@ const defaultTheme: Theme = {
 
     codespan: {
       'font-size': `90%`,
-      'color': `#d14`,
+      'color': `#FBB90F`,
       'background': `rgba(27,31,35,.05)`,
       'padding': `3px 5px`,
       'border-radius': `4px`,
@@ -575,14 +575,57 @@ const simpleTheme = toMerged(defaultTheme, {
     },
   },
 })
+// 自定义一套主题
+const womenStackTheme = toMerged(defaultTheme, {
+  base: {
+    'line-height': `1.5`,
+  },
+  block: {
+    h1: {
+      'background-image': `url('https://www.baidu.com/img/flexible/logo/pc/result.png')`,
+      'background-repeat': `no-repeat`,
+      'background-position': `top center`,
+      'background-size': `4em`,
+      'padding-top': `4em`,
+      'gap': `1em`,
+    },
+    h2: {
+      'padding': `0.5em 0.5em`,
+      'margin': `1em auto 1em`,
+      'border-radius': `8px`,
+      'box-shadow': `0 4px 6px rgba(0,0,0,0.1)`,
+    },
+    h3: {
+      '&::before': {
+        content: `"#"`,
+        position: `absolute`,
+        left: `-20px`,
+        color: `var(--md-primary-color)`,
+        opacity: `0.5`,
+      },
+    },
+    h4: {},
+    h5: {},
+    h6: {},
+    p: {
+      margin: `0.5em 8px`,
+    },
+  },
+})
 
 export const themeMap = {
   default: defaultTheme,
   grace: graceTheme,
   simple: simpleTheme,
+  womenStack: womenStackTheme,
 }
 
 export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
+  {
+    label: `womenStack`,
+    value: `womenStack`,
+    desc: `@womenStack`,
+  },
   {
     label: `经典`,
     value: `default`,

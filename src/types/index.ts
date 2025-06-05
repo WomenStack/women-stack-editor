@@ -9,6 +9,8 @@ export type Inline = `listitem` | `codespan` | `link` | `wx_link` | `strong` | `
 interface CustomCSSProperties {
   [`--md-primary-color`]?: string
   [key: `--${string}`]: string | undefined
+  [`&::before`]?: ExtendedProperties
+  [`&::after`]?: ExtendedProperties
 }
 
 export type ExtendedProperties = PropertiesHyphen & CustomCSSProperties
