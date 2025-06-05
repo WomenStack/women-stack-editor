@@ -1,6 +1,7 @@
 import type { IConfigOption, Theme } from '@/types'
 
 import { toMerged } from 'es-toolkit'
+import womenStackTheme from './women-stack-theme'
 // MARK：这里可以定义主题
 const defaultTheme: Theme = {
   base: {
@@ -576,13 +577,13 @@ const simpleTheme = toMerged(defaultTheme, {
   },
 })
 // 自定义一套主题
-const womenStackTheme = toMerged(defaultTheme, {
+const womenStackThemeFirst = toMerged(defaultTheme, {
   base: {
     'line-height': `1.5`,
   },
   block: {
     h1: {
-      'background-image': `url('https://www.baidu.com/img/flexible/logo/pc/result.png')`,
+      'background-image': `url('https://i.imgur.com/cVdK2rj.png')`,
       'background-repeat': `no-repeat`,
       'background-position': `top center`,
       'background-size': `4em`,
@@ -618,6 +619,7 @@ export const themeMap = {
   grace: graceTheme,
   simple: simpleTheme,
   womenStack: womenStackTheme,
+  womenStackFirst: womenStackThemeFirst,
 }
 
 export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
@@ -625,6 +627,11 @@ export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
     label: `womenStack`,
     value: `womenStack`,
     desc: `@womenStack`,
+  },
+  {
+    label: `womenStackFirst`,
+    value: `womenStackFirst`,
+    desc: `@womenStackFirst`,
   },
   {
     label: `经典`,
