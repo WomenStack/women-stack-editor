@@ -13,6 +13,7 @@ const {
   exportEditorContent2HTML,
   exportEditorContent2MD,
   importMarkdownContent,
+  importYuqueContent,
   dowloadAsCardImage,
 } = store
 
@@ -25,6 +26,10 @@ const editorStateDialogVisible = ref(false)
       文件
     </MenubarTrigger>
     <MenubarContent align="start">
+      <MenubarItem @click="importYuqueContent()">
+        <Upload class="mr-2 size-4" />
+        导入语雀文档 .md
+      </MenubarItem>
       <MenubarItem @click="importMarkdownContent()">
         <Upload class="mr-2 size-4" />
         导入 .md

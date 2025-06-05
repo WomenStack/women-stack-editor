@@ -657,6 +657,42 @@ export const useStore = defineStore(`store`, () => {
     }
   }
 
+  const handleYuqueFont = (content: string) => {
+    if (typeof content !== `string` || !content) {
+      return content
+    }
+    const processedContent = content.replace(/<font[^>]*>(.*?)<\/font>/g, `$1`)
+    console.log(`processedContent`, processedContent)
+    // 正则匹配内容中的<font *></font>，然后仅保留标签包裹的文字部分
+    return processedContent
+  }
+
+  const importYuqueContent = () => {
+    const body = document.body
+    const input = document.createElement(`input`)
+    input.type = `file`
+    input.name = `filename`
+    input.accept = `.md`
+    input.onchange = () => {
+      const file = input.files![0]
+      if (!file) {
+        return
+      }
+
+      const reader = new FileReader()
+      reader.readAsText(file)
+      reader.onload = (event) => {
+        const handledValue = handleYuqueFont(event.target!.result as string)
+        editor.value!.setValue(handledValue)
+        toast.success(`语雀文档导入成功`)
+      }
+    }
+
+    body.appendChild(input)
+    input.click()
+    body.removeChild(input)
+  }
+
   // 导入 Markdown 文档
   const importMarkdownContent = () => {
     const body = document.body
@@ -736,6 +772,7 @@ export const useStore = defineStore(`store`, () => {
     exportEditorContent2MD,
     dowloadAsCardImage,
 
+    importYuqueContent,
     importMarkdownContent,
     importDefaultContent,
     clearContent,
