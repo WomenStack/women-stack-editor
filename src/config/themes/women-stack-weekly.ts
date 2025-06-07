@@ -15,6 +15,7 @@ const defaultTheme: Theme = {
       'border-bottom': `2px solid var(--md-primary-color)`,
       'margin': `2em auto 1em`,
       'color': `hsl(var(--foreground))`,
+      'background': `transparent`,
       'font-size': `1.2em`,
       'font-weight': `bold`,
       'text-align': `center`,
@@ -32,7 +33,7 @@ const defaultTheme: Theme = {
       // 'border-bottom': `2px solid var(--md-primary-color)`,
       'margin': `2em auto 1em`,
       'color': `hsl(var(--foreground))`,
-      'font-size': `1.2em`,
+      'font-size': `1.3em`,
       'font-weight': `bold`,
       'text-align': `center`,
       'background-image': `url('http://8.138.185.167/womenstack.png')`,
@@ -111,6 +112,7 @@ const defaultTheme: Theme = {
     blockquote: {
       'font-style': `normal`,
       'padding': `1em`,
+      'border': `1px dashed var(--md-primary-color)`,
       'border-left': `4px solid var(--md-primary-color)`,
       'border-radius': `6px`,
       'color': `rgba(0,0,0,0.5)`,
@@ -121,7 +123,7 @@ const defaultTheme: Theme = {
     // 引用内容
     blockquote_p: {
       'display': `block`,
-      'font-size': `1em`,
+      'font-size': `0.9em`,
       'letter-spacing': `0.1em`,
       'color': `hsl(var(--foreground))`,
     },
@@ -273,7 +275,9 @@ const defaultTheme: Theme = {
     },
 
     link: {
-      color: `#576b95`,
+      // color: `#576b95`,
+      'color': `#A0A0A0`,
+      'font-size': `90%`,
     },
 
     wx_link: {
