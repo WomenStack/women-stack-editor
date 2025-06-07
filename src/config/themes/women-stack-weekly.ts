@@ -10,38 +10,38 @@ const defaultTheme: Theme = {
     container: {},
     // 一级标题
     h1: {
-      'display': `table`,
-      'padding': `0 1em`,
-      'border-bottom': `2px solid var(--md-primary-color)`,
       'margin': `2em auto 1em`,
       'color': `hsl(var(--foreground))`,
-      'background': `transparent`,
       'font-size': `1.2em`,
       'font-weight': `bold`,
       'text-align': `center`,
-      'background-image': `url('http://8.138.185.167/womenstack.png')`,
-      'background-repeat': `no-repeat`,
-      'background-position': `top center`,
-      'background-size': `4em`,
-      'padding-top': `4em`,
-      'gap': `1em`,
+      'position': `relative`,
+      'padding-top': `120px`,
+      // 'background-image': `url('http://8.138.185.167/womenstack.png')`,
+      // 'background-repeat': `no-repeat`,
+      // 'background-position': `center top`,
+      'background-size': `100px 100px`,
+      // 'background-color': `transparent !important`,
+      // 'mix-blend-mode': `normal`,
+      // 'filter': `brightness(1)`,
+      'background': `url('http://8.138.185.167/womenstack.png')  no-repeat center top !important`,
     },
 
     h2: {
       'display': `table`,
       'padding': `0 1em`,
       // 'border-bottom': `2px solid var(--md-primary-color)`,
-      'margin': `2em auto 1em`,
+      'margin': `1em auto 1em`,
       'color': `hsl(var(--foreground))`,
-      'font-size': `1.3em`,
+      'font-size': `1.5em`,
       'font-weight': `bold`,
       'text-align': `center`,
-      'background-image': `url('http://8.138.185.167/womenstack.png')`,
-      'background-repeat': `no-repeat`,
-      'background-position': `top center`,
-      'background-size': `4em`,
-      'padding-top': `4em`,
-      'gap': `1em`,
+      // 'background-image': `url('http://8.138.185.167/womenstack.png') !important`,
+      // 'background-repeat': `no-repeat`,
+      // 'background-position': `top center`,
+      // 'background-size': `4em`,
+      // 'padding-top': `4em`,
+      // 'gap': `1em`,
     },
 
     // 二级标题
@@ -59,12 +59,12 @@ const defaultTheme: Theme = {
       // 'border-bottom': `1px dashed var(--md-primary-color)`,
       'margin': `2em 8px 0.75em 0`,
       'color': `hsl(var(--foreground))`,
-      'font-size': `1.2em`,
+      'font-size': `1.1em`,
       'font-weight': `bold`,
-      'line-height': `1.2`,
+      'line-height': `1.5`,
+      'letter-spacing': `0.1em`,
     },
 
-    // 三级标题
     h4: {
       'padding-left': `8px`,
       'border-left': `3px solid var(--md-primary-color)`,
@@ -73,9 +73,15 @@ const defaultTheme: Theme = {
       'font-size': `1.1em`,
       'font-weight': `bold`,
       'line-height': `1.2`,
+      '&::before': {
+        content: `"#"`,
+        position: `absolute`,
+        left: `-20px`,
+        color: `var(--md-primary-color)`,
+        opacity: `0.5`,
+      },
     },
 
-    // 四级标题
     h5: {
       '&::before': {
         content: `"#"`,
@@ -111,21 +117,23 @@ const defaultTheme: Theme = {
     // 引用
     blockquote: {
       'font-style': `normal`,
-      'padding': `1em`,
+      'padding': `0.4em`,
       'border': `1px dashed var(--md-primary-color)`,
-      'border-left': `4px solid var(--md-primary-color)`,
+      // 'border-left': `4px solid var(--md-primary-color)`,
       'border-radius': `6px`,
       'color': `rgba(0,0,0,0.5)`,
       'background': `var(--blockquote-background)`,
       'margin-bottom': `1em`,
+      'font-size': `0.9em`,
     },
 
     // 引用内容
     blockquote_p: {
       'display': `block`,
-      'font-size': `0.9em`,
+      // 'font-size': `0.9em`,
       'letter-spacing': `0.1em`,
-      'color': `hsl(var(--foreground))`,
+      // 'color': `hsl(var(--foreground))`,
+      'color': `#A0A0A0`,
     },
 
     blockquote_note: {
@@ -276,12 +284,13 @@ const defaultTheme: Theme = {
 
     link: {
       // color: `#576b95`,
-      'color': `#A0A0A0`,
-      'font-size': `90%`,
+      color: `#A0A0A0`,
+      // 'font-size': `0.9em`,
     },
 
     wx_link: {
       'color': `#576b95`,
+      // 'font-size': `0.9em`,
       'text-decoration': `none`,
     },
 
