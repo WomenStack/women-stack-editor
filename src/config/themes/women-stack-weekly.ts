@@ -1,10 +1,8 @@
 import type { Theme } from '@/types'
 
-const womenStackTheme: Theme = {
-  // rgb(250,216,130)
+const defaultTheme: Theme = {
   base: {
-    '--md-primary-color': `#e8a80f`,
-    '--md-secondary-color': `#ff981b`,
+    '--md-primary-color': `#000000`,
     'text-align': `left`,
     'line-height': `1.75`,
   },
@@ -12,14 +10,32 @@ const womenStackTheme: Theme = {
     container: {},
     // 一级标题
     h1: {
+      'display': `table`,
       'padding': `0 1em`,
+      'border-bottom': `2px solid var(--md-primary-color)`,
       'margin': `2em auto 1em`,
       'color': `hsl(var(--foreground))`,
-      'font-size': `1.3em`,
+      'font-size': `1.2em`,
       'font-weight': `bold`,
       'text-align': `center`,
-      'background-image': `url('https://i.imgur.com/cVdK2rj.png')`,
-      // 'background-image': `url('/src/assets/images/orange-logo.png')`,
+      'background-image': `url('http://8.138.185.167/womenstack.png')`,
+      'background-repeat': `no-repeat`,
+      'background-position': `top center`,
+      'background-size': `4em`,
+      'padding-top': `4em`,
+      'gap': `1em`,
+    },
+
+    h2: {
+      'display': `table`,
+      'padding': `0 1em`,
+      // 'border-bottom': `2px solid var(--md-primary-color)`,
+      'margin': `2em auto 1em`,
+      'color': `hsl(var(--foreground))`,
+      'font-size': `1.2em`,
+      'font-weight': `bold`,
+      'text-align': `center`,
+      'background-image': `url('http://8.138.185.167/womenstack.png')`,
       'background-repeat': `no-repeat`,
       'background-position': `top center`,
       'background-size': `4em`,
@@ -28,10 +44,18 @@ const womenStackTheme: Theme = {
     },
 
     // 二级标题
-    h2: {
+    h3: {
+      // 'display': `table`,
+      // 'padding': `0 0.2em`,
+      // 'margin': `4em auto 2em`,
+      // 'color': `#fff`,
+      // 'background': `var(--md-primary-color)`,
+      // 'font-size': `1.2em`,
+      // 'font-weight': `bold`,
+      // 'text-align': `center`,
       'padding-left': `8px`,
       'border-left': `6px solid var(--md-primary-color)`,
-      'border-bottom': `1px dashed var(--md-primary-color)`,
+      // 'border-bottom': `1px dashed var(--md-primary-color)`,
       'margin': `2em 8px 0.75em 0`,
       'color': `hsl(var(--foreground))`,
       'font-size': `1.2em`,
@@ -40,29 +64,29 @@ const womenStackTheme: Theme = {
     },
 
     // 三级标题
-    h3: {
-      'padding-left': `0.8em`,
-      'position': `relative`,
+    h4: {
+      'padding-left': `8px`,
+      'border-left': `3px solid var(--md-primary-color)`,
       'margin': `2em 8px 0.75em 0`,
       'color': `hsl(var(--foreground))`,
       'font-size': `1.1em`,
       'font-weight': `bold`,
       'line-height': `1.2`,
-      'background-image': `radial-gradient(circle, var(--md-primary-color) 0.25em, transparent 0.25em)`,
-      'background-position': `-9em center`,
-      'background-repeat': `no-repeat`,
     },
 
     // 四级标题
-    h4: {
-      'margin': `2em 8px 0.5em`,
-      // 'color': `var(--md-primary-color)`,
-      'font-size': `1em`,
-      'font-weight': `bold`,
+    h5: {
+      '&::before': {
+        content: `"#"`,
+        position: `absolute`,
+        left: `-20px`,
+        color: `var(--md-primary-color)`,
+        opacity: `0.5`,
+      },
     },
 
     // 五级标题
-    h5: {
+    h6: {
       'margin': `1.5em 8px 0.5em`,
       'color': `var(--md-primary-color)`,
       'font-size': `1em`,
@@ -70,11 +94,11 @@ const womenStackTheme: Theme = {
     },
 
     // 六级标题
-    h6: {
-      'margin': `1.5em 8px 0.5em`,
-      'font-size': `1em`,
-      'color': `var(--md-primary-color)`,
-    },
+    // h7: {
+    //   'margin': `1.5em 8px 0.5em`,
+    //   'font-size': `1em`,
+    //   'color': `var(--md-primary-color)`,
+    // },
 
     // 段落
     p: {
@@ -224,12 +248,7 @@ const womenStackTheme: Theme = {
       'margin': `1.5em 0`,
     },
 
-    block_katex: {
-      'max-width': `100%`,
-      'overflow-x': `auto`,
-      '-webkit-overflow-scrolling': `touch`,
-      'padding': `0.5em 0`,
-    },
+    block_katex: {},
   },
   inline: {
     listitem: {
@@ -241,7 +260,7 @@ const womenStackTheme: Theme = {
 
     codespan: {
       'font-size': `90%`,
-      'color': `var(--md-secondary-color)`,
+      'color': `#FBB90F`,
       'background': `rgba(27,31,35,.05)`,
       'padding': `3px 5px`,
       'border-radius': `4px`,
@@ -254,8 +273,7 @@ const womenStackTheme: Theme = {
     },
 
     link: {
-      'color': `#A0A0A0`,
-      'font-size': `90%`,
+      color: `#576b95`,
     },
 
     wx_link: {
@@ -301,14 +319,8 @@ const womenStackTheme: Theme = {
       'font-size': `0.8em`,
     },
 
-    inline_katex: {
-      'display': `inline-flex`,
-      'max-width': `100%`,
-      'overflow-x': `auto`,
-      'padding-bottom': `5px`,
-      'vertical-align': `middle`,
-    },
+    inline_katex: {},
   },
 }
 
-export default womenStackTheme
+export default defaultTheme

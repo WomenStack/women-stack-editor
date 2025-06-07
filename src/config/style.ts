@@ -48,8 +48,9 @@ export const fontSizeOptions: IConfigOption[] = [
 
 export const colorOptions: IConfigOption[] = [
   {
-    label: `高贵紫`,
+    label: `百栈百盛`,
     value: `rgba(251,185,15,1)`,
+    // value: `#e8a80f`,
     desc: `公众号推荐使用`,
   },
   {

@@ -661,9 +661,21 @@ export const useStore = defineStore(`store`, () => {
     if (typeof content !== `string` || !content) {
       return content
     }
-    const processedContent = content.replace(/<font[^>]*>(.*?)<\/font>/g, `$1`)
-    console.log(`processedContent`, processedContent)
-    // 正则匹配内容中的<font *></font>，然后仅保留标签包裹的文字部分
+    // 1. 首先处理换行符，统一转换为 \n
+    let processedContent = content.replace(/\r\n/g, `\n`).replace(/\r/g, `\n`)
+
+    // 2. 处理 font 标签，同时保留内部的换行和空白字符
+    processedContent = processedContent.replace(/<font[^>]*>([\s\S]*?)<\/font>/g, (match, p1) => {
+      // 保留内部内容，包括换行和空白字符
+      return p1
+    })
+
+    // 3. 处理连续的空白行，最多保留一个空行
+    processedContent = processedContent.replace(/\n\s*\n\s*\n/g, `\n\n`)
+
+    // 4. 处理行首和行尾的空白字符
+    processedContent = processedContent.split(`\n`).map(line => line.trim()).join(`\n`)
+
     return processedContent
   }
 
