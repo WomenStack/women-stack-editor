@@ -226,7 +226,7 @@ const defaultTheme: Theme = {
 
     codespan: {
       'font-size': `90%`,
-      'color': `#FBB90F`,
+      'color': `var(--md-primary-color)`,
       'background': `rgba(27,31,35,.05)`,
       'padding': `3px 5px`,
       'border-radius': `4px`,

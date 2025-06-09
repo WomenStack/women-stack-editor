@@ -36,12 +36,12 @@ const defaultTheme: Theme = {
       'font-size': `1.5em`,
       'font-weight': `bold`,
       'text-align': `center`,
-      // 'background-image': `url('http://8.138.185.167/womenstack.png') !important`,
-      // 'background-repeat': `no-repeat`,
-      // 'background-position': `top center`,
-      // 'background-size': `4em`,
-      // 'padding-top': `4em`,
-      // 'gap': `1em`,
+      'background-image': `url('http://8.138.185.167/womenstack.png') !important`,
+      'background-repeat': `no-repeat`,
+      'background-position': `top center`,
+      'background-size': `4em`,
+      'padding-top': `4em`,
+      'gap': `1em`,
     },
 
     // 二级标题
