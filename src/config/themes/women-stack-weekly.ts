@@ -112,6 +112,7 @@ const defaultTheme: Theme = {
       'margin': `1.5em 8px`,
       'letter-spacing': `0.1em`,
       'color': `hsl(var(--foreground))`,
+      'text-align': `justify`,
     },
 
     // 引用
@@ -125,6 +126,7 @@ const defaultTheme: Theme = {
       'background': `var(--blockquote-background)`,
       'margin-bottom': `1em`,
       'font-size': `0.9em`,
+      'text-align': `justify`,
     },
 
     // 引用内容

@@ -71,6 +71,7 @@ const defaultTheme: Theme = {
       'margin': `1.5em 8px`,
       'letter-spacing': `0.1em`,
       'color': `hsl(var(--foreground))`,
+      'text-align': `justify`,
     },
 
     // 引用
@@ -82,6 +83,7 @@ const defaultTheme: Theme = {
       'color': `rgba(0,0,0,0.5)`,
       'background': `var(--blockquote-background)`,
       'margin-bottom': `1em`,
+      'text-align': `justify`,
     },
 
     // 引用内容
@@ -90,6 +92,7 @@ const defaultTheme: Theme = {
       'font-size': `1em`,
       'letter-spacing': `0.1em`,
       'color': `hsl(var(--foreground))`,
+      'text-align': `justify`,
     },
 
     blockquote_note: {
