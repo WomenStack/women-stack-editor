@@ -126,7 +126,6 @@ const defaultTheme: Theme = {
       'background': `var(--blockquote-background)`,
       'margin-bottom': `1em`,
       'font-size': `0.9em`,
-      'text-align': `justify`,
     },
 
     // 引用内容
