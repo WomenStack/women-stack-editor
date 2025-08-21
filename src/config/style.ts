@@ -48,10 +48,14 @@ export const fontSizeOptions: IConfigOption[] = [
 
 export const colorOptions: IConfigOption[] = [
   {
-    label: `百栈百盛`,
+    label: `巫思周刊`,
     value: `rgba(251,185,15,1)`,
-    // value: `#e8a80f`,
-    desc: `公众号推荐使用`,
+    desc: `周刊推荐使用`,
+  },
+  {
+    label: `百栈职通车`,
+    value: `#5dbe8a`,
+    desc: `职通车推荐使用`,
   },
   {
     label: `经典蓝`,
@@ -62,6 +66,16 @@ export const colorOptions: IConfigOption[] = [
     label: `翡翠绿`,
     value: `#009874`,
     desc: `自然平衡`,
+  },
+  {
+    label: `薄荷绿`,
+    value: `#00B894`,
+    desc: `清新活力`,
+  },
+  {
+    label: `海藻绿`,
+    value: `#20B2AA`,
+    desc: `海洋清新`,
   },
   {
     label: `活力橘`,

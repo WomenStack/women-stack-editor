@@ -1,6 +1,6 @@
 import type { IConfigOption } from '@/types'
 
-import { defaultTheme, graceTheme, simpleTheme, subBlue, womenStackGrace, womenStackNormal, womenStackWeekly } from './themes'
+import { defaultTheme, graceTheme, simpleTheme, subBlue, womenStackGrace, womenStackJobs, womenStackNormal, womenStackWeekly } from './themes'
 
 export const themeMap = {
   default: defaultTheme,
@@ -8,6 +8,7 @@ export const themeMap = {
   simple: simpleTheme,
   womenStack: womenStackNormal,
   weekly: womenStackWeekly,
+  jobs: womenStackJobs,
   graceTheme: womenStackGrace,
   subBlue,
 }
@@ -16,6 +17,11 @@ export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
   {
     label: `周刊`,
     value: `weekly`,
+    desc: `@WomenStack`,
+  },
+  {
+    label: `职通车`,
+    value: `jobs`,
     desc: `@WomenStack`,
   },
   {

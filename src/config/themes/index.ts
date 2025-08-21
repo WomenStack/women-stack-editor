@@ -4,6 +4,7 @@ import simpleTheme from './simple'
 import subBlue from './sub-blue'
 import womenStackTheme from './women-stack'
 import womenStackGrace from './women-stack-grace'
+import womenStackJobs from './women-stack-jobs'
 import womenStackNormal from './women-stack-normal'
 import womenStackWeekly from './women-stack-weekly'
 
@@ -13,6 +14,7 @@ export {
   simpleTheme,
   subBlue,
   womenStackGrace,
+  womenStackJobs,
   womenStackNormal,
   womenStackTheme,
   womenStackWeekly,
