@@ -7,23 +7,22 @@ const womenStackJobs = toMerged(defaultTheme, {
   block: {
     container: {},
     h1: {
-      'font-size': `1.2em`,
+      'font-size': `1.3em`,
       'color': `var(--md-primary-color)`,
-      'border': `2px solid var(--md-primary-color)`,
+      'border': `4px double var(--md-primary-color)`,
+      'border-top': `6px solid var(--md-primary-color)`,
       'border-radius': `6px`,
-      'padding': `1.3em 0.8em 0.5em 0.8em`,
-      'background': `radial-gradient(circle 6px at 20px 14px, var(--md-primary-color) 33%, transparent 101%),
-        radial-gradient(circle 6px at 35px 14px, var(--md-primary-color) 33%, transparent 101%),
-        radial-gradient(circle 6px at 50px 14px, var(--md-primary-color) 33%, transparent 101%)`,
+      'padding': `0.5em 0.8em`,
     },
 
     h2: {
-      'margin-top': `0.5em`,
-      'padding-left': `12px`,
+      'margin-top': `1em`,
+      'margin-bottom': `1.5em`,
+      'padding': `0.2em 1.8em 0.2em 0.8em`,
       'font-size': `1.1em`,
       'border-radius': `6px`,
       'border-top-right-radius': `100px`,
-      'line-height': `2.4em`,
+      'line-height': `1.5em`,
       'display': `block`,
       'color': `var(--md-primary-color)`,
       'text-align': `left`,
@@ -36,7 +35,7 @@ const womenStackJobs = toMerged(defaultTheme, {
 
     h3: {
       'padding': `0.5em 1.5em 0.5em 0.5em`,
-      'display': `inline`,
+      'display': `inline-block`,
       'font-size': `1em`,
       'border-radius': `6px`,
       'border-top-right-radius': `100px`,
@@ -44,6 +43,8 @@ const womenStackJobs = toMerged(defaultTheme, {
       'background': `var(--md-primary-color)`,
       'border-top': `8px solid color-mix(in srgb, #fff 50%, transparent)`,
       'color': `white`,
+      'margin-top': `1em`,
+      'margin-bottom': `0em`,
     },
 
     h4: {
