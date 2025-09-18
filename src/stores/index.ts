@@ -661,22 +661,120 @@ export const useStore = defineStore(`store`, () => {
     if (typeof content !== `string` || !content) {
       return content
     }
+
     // 1. 首先处理换行符，统一转换为 \n
     let processedContent = content.replace(/\r\n/g, `\n`).replace(/\r/g, `\n`)
 
-    // 2. 处理 font 标签，同时保留内部的换行和空白字符
-    processedContent = processedContent.replace(/<font[^>]*>([\s\S]*?)<\/font>/g, (match, p1) => {
-      // 保留内部内容，包括换行和空白字符
+    // 2. 处理 font 标签，使用更强大的嵌套处理逻辑
+    // 使用递归方式处理多层嵌套的 font 标签
+    const processFontTags = (text: string): string => {
+      // 匹配最内层的 font 标签（不包含其他 font 标签）
+      const fontRegex = /<font[^>]*>([^<]*(?:<(?![^>]*font)[^>]*>[^<]*)*?)<\/font>/g
+      let result = text
+      let hasChanges = true
+      let iterations = 0
+      const maxIterations = 10 // 防止无限循环
+
+      while (hasChanges && iterations < maxIterations) {
+        const before = result
+        result = result.replace(fontRegex, (_match, p1) => {
+          // 保留内部内容，包括换行和空白字符
+          return p1
+        })
+        hasChanges = before !== result
+        iterations++
+      }
+
+      return result
+    }
+
+    processedContent = processFontTags(processedContent)
+
+    // 3. 处理其他常见的语雀导出标签
+    // 处理 span 标签（语雀常用）
+    processedContent = processedContent.replace(/<span[^>]*>([\s\S]*?)<\/span>/g, (_match, p1) => {
       return p1
     })
 
-    // 3. 处理连续的空白行，最多保留一个空行
-    processedContent = processedContent.replace(/\n\s*\n\s*\n/g, `\n\n`)
+    // 处理 div 标签（语雀常用）
+    processedContent = processedContent.replace(/<div[^>]*>([\s\S]*?)<\/div>/g, (_match, p1) => {
+      return p1
+    })
 
-    // 4. 处理行首和行尾的空白字符
-    processedContent = processedContent.split(`\n`).map(line => line.trim()).join(`\n`)
+    // 4. 更智能的空白行处理
+    // 保留代码块、列表、引用等特殊结构中的空白行
+    const lines = processedContent.split(`\n`)
+    let inCodeBlock = false
+    let inList = false
+    let inBlockquote = false
+    const processedLines: string[] = []
 
-    return processedContent
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+      const trimmedLine = line.trim()
+
+      // 检测代码块状态
+      if (trimmedLine.startsWith(`\`\`\``)) {
+        inCodeBlock = !inCodeBlock
+        processedLines.push(line.trim())
+        continue
+      }
+
+      // 检测列表状态
+      if (trimmedLine.match(/^\s*[-*+]\s/) || trimmedLine.match(/^\s*\d+\.\s/)) {
+        inList = true
+      }
+      else if (trimmedLine && !trimmedLine.match(/^\s*[-*+]\s/) && !trimmedLine.match(/^\s*\d+\.\s/)) {
+        inList = false
+      }
+
+      // 检测引用状态
+      if (trimmedLine.startsWith(`>`)) {
+        inBlockquote = true
+      }
+      else if (trimmedLine && !trimmedLine.startsWith(`>`)) {
+        inBlockquote = false
+      }
+
+      // 如果在代码块内，完全保留原始内容
+      if (inCodeBlock) {
+        processedLines.push(line)
+        continue
+      }
+
+      // 如果在列表或引用中，保留适当的空白
+      if (inList || inBlockquote) {
+        if (trimmedLine === ``) {
+          // 在列表或引用中，只保留一个空行
+          if (processedLines[processedLines.length - 1] !== ``) {
+            processedLines.push(``)
+          }
+        }
+        else {
+          processedLines.push(line.trim())
+        }
+        continue
+      }
+
+      // 普通内容处理
+      if (trimmedLine === ``) {
+        // 最多保留两个连续空行
+        if (processedLines.length < 2
+          || !(processedLines[processedLines.length - 1] === `` && processedLines[processedLines.length - 2] === ``)) {
+          processedLines.push(``)
+        }
+      }
+      else {
+        processedLines.push(line.trim())
+      }
+    }
+
+    // 清理末尾多余的空行
+    while (processedLines.length > 0 && processedLines[processedLines.length - 1] === ``) {
+      processedLines.pop()
+    }
+
+    return processedLines.join(`\n`)
   }
 
   const importYuqueContent = () => {

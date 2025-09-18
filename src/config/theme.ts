@@ -24,13 +24,13 @@ export const themeOptions: IConfigOption<keyof typeof themeMap>[] = [
     value: `jobs`,
     desc: `@WomenStack`,
   },
+  // {
+  //   label: `日常`,
+  //   value: `womenStack`,
+  //   desc: `@WomenStack`,
+  // },
   {
-    label: `日常`,
-    value: `womenStack`,
-    desc: `@WomenStack`,
-  },
-  {
-    label: `Grace`,
+    label: `优雅日常`,
     value: `graceTheme`,
     desc: `@WomenStack`,
   },
