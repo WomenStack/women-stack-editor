@@ -191,17 +191,23 @@ const womenStackTheme: Theme = {
 
     // 有序列表
     ol: {
+      'margin': `1.5em 8px`,
       'padding-left': `1em`,
       'margin-left': `0`,
       'color': `hsl(var(--foreground))`,
+      'letter-spacing': `0.1em`,
+      'text-align': `justify`,
     },
 
     // 无序列表
     ul: {
       'list-style': `circle`,
+      'margin': `1.5em 8px`,
       'padding-left': `1em`,
       'margin-left': `0`,
       'color': `hsl(var(--foreground))`,
+      'letter-spacing': `0.1em`,
+      'text-align': `justify`,
     },
 
     footnotes: {
@@ -238,8 +244,14 @@ const womenStackTheme: Theme = {
     listitem: {
       'text-indent': `-1em`,
       'display': `block`,
-      'margin': `0.2em 8px`,
+      'margin': `0.45em 0`,
       'color': `hsl(var(--foreground))`,
+      'font-size': `inherit`,
+      'font-family': `inherit`,
+      'font-weight': `inherit`,
+      'line-height': `inherit`,
+      'letter-spacing': `inherit`,
+      'text-align': `justify`,
     },
 
     codespan: {
